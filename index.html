@@ -1,0 +1,1880 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Code Snippets</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8d8eea41-3a0c-47c4-a304-6e7805ad6780" class="page serif"><header><div class="page-header-icon undefined"><span class="icon">👨🏽‍💻</span></div><h1 class="page-title">Code Snippets</h1></header><div class="page-body"><p id="1934d220-2229-4689-ad03-8744372bced7" class="block-color-purple"><strong>Contents</strong></p><nav id="3cd2a264-d1e8-48e2-b7fd-a4c1c1996210" class="block-color-blue table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12e8fa0c-d5a4-4301-b8ea-b097bf132508">Sorting</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#67c7a5e7-7690-47b4-b519-48d300556820">Quicksort</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c0a7ccc1-ad94-40d7-a291-d20bf036bec3">QuickSelect</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4c00167b-aa53-414e-a8af-7ea32c2bca8e">Merge Sort </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#97a4e5c3-1634-4a7a-a14c-5c0ee447004f">Shell Sort</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3576aa31-7de6-4e66-9962-4e39f3fd7036">Sieve of Eratosthenes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#261992d8-026f-498b-b5cc-188ed842d2d0">Binary Search</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0a2c44dd-4a71-4066-94ed-86ec3135b3bc">First index of a number in a sorted array</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7e010ff1-3a1d-4157-8e3b-fa8e64962801">Last index of a number in a sorted array</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3a7b8342-343f-455d-90d7-ba7c3dd47178">Count of an element in sorted array </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9ef4457c-e2c7-48ee-8e3c-26ef320a6e11">First number(Floor of number) less than or equal to</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c32a09e5-4a67-4b0e-94ad-f8bc23e64d30">Ceil of number (number greater than or equal)-</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cea32518-068c-4655-acb5-6aee4caeb46e">Painter Partition Problem</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#42af603c-cfea-4d9a-876f-56ad77e040c9">Median of two sorted array</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7298689c-fd9e-46f1-9abe-c1ec39aac8c4">Nth Fibonacci mod 10e9+7</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#96b211e9-b369-4f6d-b7d7-c84cd8636c6e">Ath row of Pascal&#x27;s triangle </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#3c20cd00-764d-4428-a93c-1ffe7e9c5eb2">Boyer-Moore Majority Voting Algorithm (O(n))</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#99a61419-642a-4f1f-9fc4-c353bb467d71">x^n mod m using binary exponentiation</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7794610c-9471-4a04-a6c0-15220eac1e15">Bit Manipulation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6e0811d0-af52-40b7-84f9-41218df49b72">Count number of set bits</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#559ba587-5593-4176-8837-5798fd1034d8">Sum of all the of subsets (using bitset)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#78cb55b4-33a3-48ab-8f5a-01dbd8de401f">Finding the rightmost set bit</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e5d3ad4c-2150-4d45-b148-7d69280c3547">LPS for KMP algorithm</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#593dbe1b-ef10-4be7-a104-68a5f7df5e78">LCM of N numbers modulo mod</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#620e0211-7aee-4e30-9f2f-117d7e59a4f4">Sliding Window</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c4e0d578-6bc4-43f3-85bd-4451ebf7f39c">Sliding Window max</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d5ce23bc-e4c0-47bd-a0aa-2806cc0bc5e7">Longest substring with no repetition</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eda8ac20-b269-4e3c-801b-52c609d7f7db">Reverse a doubly-linked list in K-groups</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72a7440d-51fb-49bd-9662-3aebdfa31a69">Stock Span Problem</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ca1baa64-6a2d-4f31-b997-cdeface818b8">Dividing a number (string)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#66309832-2a65-4a2f-bab5-b74da6ad1a92">Trie</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f377c169-47d0-49e0-a5b8-4488de308873">Segment Tree (RMQ)</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a6367b1c-9ce9-4785-a074-c090fda278dd">Binary Tree</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#70834bab-5419-48da-aecc-712ef366c3f3">Largest BST Subtree</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bf653276-6ec9-44ca-be79-a71f3464f8e6">Dynamic Programming</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aac2767d-0a85-45a6-898f-20ad8b517218">Longest Increasing Subsequence</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cf8383ae-7e65-46cd-aa49-2354cc6b7b76">Longest Common Subsequence</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4bd2636c-2319-454a-816a-7d13ebd644b5">Longest Palindromic subsequence</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7ca95584-6448-4e26-991d-c66c2c365ca8">Matrix Chain Multiplication</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#25033482-170d-4f9a-aaef-e7c6077b04fc">Maximum profit by buying and selling max K times</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#74986e8f-edb0-4919-aefd-d893057f31bb">Count Number of subset with given sum</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#99a413a5-0a26-4d7b-b24c-09fad1c4f6a6">Subset sum with restriction on size</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c861b21f-6298-4538-aa75-6ac71c17ae6e">Matrix DP : Max size that all square sub grid have sum &lt; k</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ba6565f0-194e-49cf-a88f-4553bb0f2473">Regular Expression Matching</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#32708acc-3584-4f65-98cf-844f494f93bc">Minimum number of coins required to form sum </a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#df9f456c-3ef6-4c70-b3d7-206606faae7c">Greedy Algorithm</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b67ac5f6-78f4-4d35-81f0-52e6d094eec7">Minimum jumps to reach end of array</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e90f5e2d-1e5e-409d-a384-a5ed2cdca731">Job Sequencing Problem</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bf76c791-8025-460a-b7f8-044f64be5e5f">Heap </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#00bd0567-ff25-4fc5-b7c6-c4353e9c0bc9">Median of running stream of numbers</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b32830ae-7830-4c27-9eef-835addf903e6">Max profit selling ticket [Heap alternate optimized]</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#259a9f40-5db4-4393-8d8a-a70b59ccdc20">Graph Algorithm</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#634cd641-ae96-47e2-9209-afbb5bb0a54c">Kahn Algorithm for Topological Sort</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ccb04107-96ad-43a4-9fbf-d7987021362f">Articulation Point</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#08d2b178-37cc-4394-a975-93da0e68c7fb">Bridge in graph</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5831c235-5ff8-4d9a-9803-84c1914dea77">Dijkstra Algorithm ( O( V+E log(V)) ) </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#da1b3663-2185-44dd-afc5-de2d22405be8">Prim&#x27;s Algorithm for Minimum Spanning Tree ( O(E log(V) ) )</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f8010d95-2593-4d21-af06-85e865ae7eda">Kruskal&#x27;s Algorithm for MST ( O(E log(V) ) )</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9d91dfe2-fb61-47bb-be17-740ed8c8b74e">Bellman Ford Algorithm (for min dist of all nodes from source) (O(VE))</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#aee201a6-0f9b-4cf3-9619-e7adc116ae7e">Floyd-Warshall Algorithm (All pair shortest path) O(V3)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2fde6df4-c014-4421-aa09-93a39cce054b">Hamiltonian Cycle</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6d9ff3dd-bb43-4c91-9029-b2e11055a759">Travelling Salesman Problem</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#147e44fc-82ed-40f3-ac69-1bf7cd3e040a">Sparse Matrix Multiplication</a></div></nav><hr id="f6895763-576f-4344-a452-12ecbbe99e99"/><h2 id="12e8fa0c-d5a4-4301-b8ea-b097bf132508" class="">Sorting</h2><h3 id="67c7a5e7-7690-47b4-b519-48d300556820" class="">Quicksort</h3><pre id="2803eba7-3d5a-4f2b-87f5-1a70774072c9" class="code"><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+void swap(int&amp; a, int&amp; b){
+    a = a + b - (b = a);
+}
+
+int partition(int ar[], int l , int r){
+    int pivot = ar[r];
+    int k = l;
+    for (int i = l; i &lt; r; i++){
+        if (ar[i] &lt;= pivot) swap(ar[k++], ar[i]);
+    }
+    swap(ar[k], ar[r]);
+    return k;
+}
+
+void quickSort(int ar[], int l, int r){
+		if (l &lt; r){
+			// to randomise this quick sort, we swap the last element with a random index and call the traditional partition
+			int random_index = rand()%(r-l+1) + l;
+			swap(ar[random_index], ar[r]);
+
+	    int mid = partition(ar, l, r);
+	    quickSort(ar, l, mid-1);
+	    quickSort(ar, mid+1, r);
+		}
+}
+
+int main (){
+    int ar[] = {4, 3, 18, 9, 10, 2 , 3};
+    quickSort(ar, 0, 6);
+    
+    for (int i = 0; i &lt; 7; i++)
+        cout &lt;&lt; ar[i] &lt;&lt; &quot; &quot;;
+    return 0;
+}</code></pre><p id="5210ee1e-817f-41b7-a894-8a994688cb74" class=""><span style="border-bottom:0.05em solid">Note </span>- There is a modification of <code>quicksort</code>, named <code>quick select</code>, using which we can find the kth smallest or largest element. </p><h3 id="c0a7ccc1-ad94-40d7-a291-d20bf036bec3" class="">QuickSelect</h3><pre id="a3bcc3a1-05fe-4c27-9833-fd0719a1a8c0" class="code"><code>int partition(vector&lt;int&gt; &amp; nums, int l, int r){
+    int idx = l, val = nums[r];
+    for(int i = l; i &lt; r; i++){
+        if(nums[i] &gt; val) swap(nums[idx++], nums[i]); // find kth largest element in array
+    }
+    swap(nums[idx], nums[r]);
+    return idx;
+}
+
+int quickselect(vector&lt;int&gt;&amp; nums, int k, int l, int r)
+{
+    int idx = partition(nums, l, r) ;
+    if(idx == k - 1) return nums[idx];
+    else if(idx &lt; k - 1) return quickselect(nums, k, idx+1, r);
+    else return quickselect(nums, k, l, idx - 1);
+}
+int findKthLargest(vector&lt;int&gt;&amp; nums, int k) {
+    return quickselect(nums, k, 0, nums.size()-1);
+}</code></pre><h3 id="4c00167b-aa53-414e-a8af-7ea32c2bca8e" class="">Merge Sort </h3><pre id="60fd795a-0b3a-4382-8c64-8921ba5376ce" class="code"><code>void merge(int arr[], int l, int mid, int r){
+    int n1 = mid - l + 1, n2 = r - mid;
+    int left[n1], right[n2];
+    for (int i = 0; i &lt; n1; i++)
+        left[i] = arr[i+l];
+    for (int j = 0; j &lt; n2; j++)
+        right[j] = arr[j+mid+1];
+        
+    int i = l, j = 0, k= 0;
+    
+    while(j &lt; n1 &amp;&amp; k &lt; n2){
+        if (left[j] &lt;= right[k]){
+            arr[i++] = left[j++];
+        }
+        else 
+            arr[i++] = right[k++];
+    }
+    
+    while(j &lt; n1){
+        arr[i++] = left[j++];
+    }
+    while(k &lt; n2){
+        arr[i++] = right[k++];
+    }
+}
+
+void mergesort(int arr[], int l, int r){
+    if (l &lt; r)
+    {
+        int mid = (l+r)/2;
+        mergesort(arr, l, mid);
+        mergesort(arr, mid+1, r);
+        
+        merge(arr, l, mid, r);
+    }
+}
+
+int main (){
+    int ar[] = {4, 3, 18, 9, 10, 2 , 3};
+    mergesort(ar, 0, 6);
+    
+    for (int i = 0; i &lt; 7; i++)
+        cout &lt;&lt; ar[i] &lt;&lt; &quot; &quot;;
+    return 0;
+}</code></pre><h3 id="97a4e5c3-1634-4a7a-a14c-5c0ee447004f" class="">Shell Sort</h3><pre id="e4313a8e-1923-4971-bf17-4d227e571cec" class="code"><code>// Modified insertion sort gaps by 3x+1
+void shellSort(int arr[], int n)
+{
+    for (int gap = n/3; gap &gt; 0; gap /= 3)
+    {
+        for (int i = gap; i &lt; n; i += 1)
+        {
+            int last = arr[i];
+            int j;           
+            for (j = i; j &gt;= gap &amp;&amp; arr[j - gap] &gt; temp; j -= gap)
+                arr[j] = arr[j - gap];
+            arr[j] = temp;
+        }
+    }
+}</code></pre><h2 id="3576aa31-7de6-4e66-9962-4e39f3fd7036" class="">Sieve of Eratosthenes</h2><pre id="e0817609-4e21-4abc-9f73-3ab7a78c4686" class="code"><code>// Generate isPrime List less equal than N
+vector&lt;bool&gt; isPrime(N + 1, true);
+isPrime[0] = false;
+isPrime[1] = false;
+
+// Sieve of Erastothenes
+for(int i = 2; i &lt;= N/i; i++) {
+    if (!isPrime[i]) continue;
+    // if (i &gt; N / i) break;
+    for (int j = i * i; j &lt;= N; j += i) isPrime[j] = false;
+}</code></pre><h2 id="261992d8-026f-498b-b5cc-188ed842d2d0" class="">Binary Search</h2><pre id="3dea251e-11a1-4ea9-9653-4eb3f90d6956" class="code"><code>//arr[] is an sorted array of size n
+int binary_search(int arr, int n, int target){
+	int l = 0, r = n-1;
+	while (l &lt;= r){
+	      mid = l + (r - l)/2;
+	      if (target &gt; arr[mid])  l = mid+1;
+	      else if (target &lt; arr[mid]) r = mid-1;
+	      else {
+					return mid;
+				}
+	}
+	return -1;
+}</code></pre><h3 id="0a2c44dd-4a71-4066-94ed-86ec3135b3bc" class="">First index of a number in a sorted array</h3><pre id="c45802fe-b220-40bc-b9a6-fe58ba403e5f" class="code"><code>// If we have to find the first index of a number in a sorted array
+
+int first_occurence(int arr[], int n, int x){
+	int l = 0, r = n-1, ind = -1;
+	while (l &lt;= r){
+	    int mid = (l+r)/2;
+	    if (arr[mid] &gt; x) r = mid-1;
+	    else if (arr[mid &lt; x]) l = mid+1;
+	    else{
+	        ind = mid;
+	        r = mid-1;
+	    }
+	}
+	return ind;
+}</code></pre><h3 id="7e010ff1-3a1d-4157-8e3b-fa8e64962801" class="">Last index of a number in a sorted array</h3><pre id="ab6e64ea-4e87-45df-90c7-3ae16c8ca046" class="code"><code>// If we have to find the last index of a number in a sorted array
+int last_occurence(int arr[], int n, int x){
+	int l = 0, r = n-1, ind = -1;
+	while (l &lt;= r){
+	    int mid = (l+r)/2;
+	    if (arr[mid] &gt; x) r = mid-1;
+	    else if (arr[mid] &lt; x) l = mid+1;
+	    else{
+	        ind = mid;
+	        l = mid+1;
+	    }
+	}
+	return ind;
+}</code></pre><h3 id="3a7b8342-343f-455d-90d7-ba7c3dd47178" class="">Count of an element in sorted array </h3><pre id="28a78b70-e366-40c2-948e-925c140704cc" class="code"><code>//find first and last index and then find distance
+int count_ele(int arr[], int n, int x){
+	int first = first_occurence(arr, n, x);
+	int last = last_occurence(arr, n, x);
+	return (last - first + 1); 
+}</code></pre><h3 id="9ef4457c-e2c7-48ee-8e3c-26ef320a6e11" class="">First number(Floor of number) less than or equal to</h3><pre id="ec4081c8-f4c8-48d0-92d7-8ddf521f907d" class="code"><code>int floor_array(int arr[], int n, int x){
+	int l = 0, r = n-1, ind = -1;
+	while (l &lt;= r){
+	    int mid = l+(r-l)/2;
+	    if (arr[mid] &gt; x) r = mid-1; // we would have use &gt;= if we had to find first strictly smaller element 
+	    else{
+	        ind = mid; 
+	        l = mid+1;
+	    }
+	}
+	return ind; //if ind = -1 then no such values exist 
+}</code></pre><h3 id="c32a09e5-4a67-4b0e-94ad-f8bc23e64d30" class="">Ceil of number (number greater than or equal)-</h3><pre id="653435cb-1110-4ac5-82f8-9072dfa98f8c" class="code"><code>int ceil_array(int arr[], int n, int x){
+	int l = 0, r = n-1, ind = -1;
+	while (l &lt;= r){
+	    int mid = l+(r-l)/2;
+	    if (arr[mid] &lt; x) l = mid+1; // we would have use &lt;= if we had to find first strictly greater element 
+	    else{
+	        ind = mid; 
+	        r = mid-1;
+	    }
+	}
+	return ind; //if ind = -1 then no such values exist 
+}</code></pre><h3 id="cea32518-068c-4655-acb5-6aee4caeb46e" class="">Painter Partition Problem</h3><pre id="e7d1e6ed-33bc-4a54-bea0-82291ddd36d7" class="code"><code>bool isValid(int arr[], int n, int k, long long time)
+{
+    int painter = 1;
+    long long sum = 0;
+    for (int i = 0; i &lt; n; i++){
+        if(arr[i] &gt; time) return false;
+        sum += 1ll*arr[i];
+        if (sum &gt; time){
+            sum = arr[i];
+            painter++;
+        }
+        if (painter &gt; k) return false;
+    }
+    return true;
+  }
+  
+  long long minTime(int arr[], int n, int k)
+  {
+      long long l = 0, r = 0, ans = -1;
+      for (int i = 0; i &lt; n; i++) r += 1ll*arr[i];
+      while (l &lt;= r){
+          long long mid = l + (r-l)/2;
+          if (isValid(arr, n, k, mid)){
+              ans = mid; 
+              r = mid - 1;
+          }
+          else l = mid + 1;
+      }
+      return ans;
+  }</code></pre><h3 id="42af603c-cfea-4d9a-876f-56ad77e040c9" class="">Median of two sorted array</h3><pre id="d35417a4-8cda-4079-b10c-3e4c200efd27" class="code"><code>double getMedian(const vector&lt;int&gt; &amp;A, const vector&lt;int&gt; &amp;B) {
+    int n = A.size(), m = B.size();
+		if (n &gt; m)  return getMedian(B, A); // make A the smaller array
+ 
+    int l = 0, r = n;
+    while (l &lt;= r){
+        int partX = l + (r-l)/2;
+        int partY = (n+m+1)/2 - partX;
+        
+        int maxLeftX = (partX == 0) ? INT_MIN : A[partX - 1]; // if partX is 0 then the left part is empty
+        int minRightX = (partX == n) ? INT_MAX : A[partX]; // if partX=n right part empty
+
+        int maxLeftY = (partY == 0) ? INT_MIN : B[partY - 1];
+        int minRightY = (partY == m) ? INT_MAX : B[partY];
+
+        if (maxLeftX &lt;= minRightY &amp;&amp; maxLeftY &lt;= minRightX) {
+            if ((n + m)&amp;1) return max(maxLeftX, maxLeftY);
+            else return (1.0*max(maxLeftX, maxLeftY) + min(minRightX, minRightY))/2;
+        }
+				else if (maxLeftX &gt; minRightY)  r = partX - 1;
+			  else l = partX + 1;
+    }
+}</code></pre><h2 id="7298689c-fd9e-46f1-9abe-c1ec39aac8c4" class="">Nth Fibonacci mod 10e9+7</h2><pre id="feb05f10-678f-4805-95e1-33deacdfd2a7" class="code"><code>//Recursion with memoization
+
+const long long MOD = 1e9+7;
+unordered_map&lt;long long,long long&gt; Fib;
+
+long long fib(long long  n)
+{
+    if(n&lt;2) return 1;
+    if(Fib.find(n) != Fib.end()) return Fib[n];
+    Fib[n] = (fib((n+1)/2)*fib(n/2) + fib((n-1)/2)*fib((n-2)/2)) % MOD;
+    return Fib[n];
+}
+
+int main() {
+	 int n; cin &gt;&gt; n;
+   return fib(n-1);
+}</code></pre><h2 id="96b211e9-b369-4f6d-b7d7-c84cd8636c6e" class="">Ath row of Pascal&#x27;s triangle </h2><pre id="2552f452-e8ec-4e59-90d7-0c20c295fa48" class="code"><code>//mathematical 
+int n  = 1;
+vector&lt;int&gt; ans;
+for( int col = 0; col &lt;= A ; col++){// nth row will have n + 1 elements in pascal triangle
+    ans.push_back(n);
+    n = n * (A - col)/(col + 1);// mathematics
+}
+return ans;</code></pre><h2 id="3c20cd00-764d-4428-a93c-1ffe7e9c5eb2" class="">Boyer-Moore Majority Voting Algorithm (O(n))</h2><pre id="d376c194-498a-44f9-86a0-78c0cbab6bd8" class="code"><code>// Initialize an element m and a counter count with i = 0
+// For each element x of the input sequence:
+// If count = 0, then assign m = x and count = 1
+//   else if m = x, then assign count = count + 1
+//   else assign count = count − 1
+// run a loop again and check whether m is actually the majority
+// Return m
+
+int majorityElement(int a[], int size)
+{
+    int count = 0, m;
+    for (int i = 0; i &lt; size; i++){
+        if(!count) m=a[i], count++;
+        else{
+            if (a[i] == m)  count++;
+            else count--;
+        }
+    }
+    
+    count = 0;
+    for (int i = 0; i &lt; size; i++){
+        if (a[i] == m)  count++;
+    }
+    
+    return count &gt; (size/2) ? m : -1 ;
+}</code></pre><p id="91cec03e-a881-4752-bbe7-c4f88fc3cdbc" class=""><span style="border-bottom:0.05em solid">Reference:</span> <a href="https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm">https://en.wikipedia.org/wiki/Boyer–Moore_majority_vote_algorithm</a></p><h2 id="99a61419-642a-4f1f-9fc4-c353bb467d71" class="">x^n mod m using binary exponentiation</h2><pre id="df99bd01-1720-488d-8b0f-bee685ed9e57" class="code"><code>long long power(int x, int n){
+	if (n==0) return 1;
+
+	long long ans = power(x, n/2);
+
+	ans = (ans * ans) % m;
+	if (n&amp;1) ans = (ans * x) % m;	
+	return ans;
+}
+
+
+// fast method without recursion
+long long power(int x, int n){
+	x = x % m;
+	long long ans = 1;
+	while (n){
+		if (n&amp;1) ans = (ans*x)%m;
+		x = (x * x) % m;
+		n &gt;&gt;= 1;
+	}
+	return ans;
+}</code></pre><h2 id="7794610c-9471-4a04-a6c0-15220eac1e15" class="">Bit Manipulation</h2><h3 id="6e0811d0-af52-40b7-84f9-41218df49b72" class="">Count number of set bits</h3><pre id="b1093eca-75e6-4aa3-b2ad-45d5c0eb8ee3" class="code"><code>int countSetBits(int x){
+	int count = 0;
+	while (x){
+		count++;
+		x = x&amp;(x-1);
+	}
+	return count
+}</code></pre><h3 id="559ba587-5593-4176-8837-5798fd1034d8" class="">Sum of all the of subsets (using bitset)</h3><pre id="609e95d9-bd05-414b-8503-1b1dbb47deae" class="code"><code>vll calcsum(vll&amp; a){
+		ll len = ll((a).size());
+		vll ans;
+		for(ll i = 0; i &lt; (1ll&lt;&lt;len); i++){
+			ll s = 0;
+			for (ll j = 0; j &lt; len; j++){
+				if (i &amp;(1ll&lt;&lt;j))
+					s += a[j];
+			}
+			ans.push_back(s);
+		}
+		return ans;
+}</code></pre><h3 id="78cb55b4-33a3-48ab-8f5a-01dbd8de401f" class="">Finding the rightmost set bit</h3><pre id="ccbe9e73-ec4a-4deb-b798-5984a587ec29" class="code"><code>// let the number be n 
+// rightmost set bit will be the AND of number with its 2&#x27;s complement
+int x = n&amp;~(n-1);
+
+// other tricks
+// x &amp; (x-1) will clear the lowest set bit of x
+// x &amp; ~(x-1) extracts the lowest set bit of x (all others are clear). Pretty patterns when applied to a linear sequence.
+// x &amp; (x + (1 &lt;&lt; n)) = x, with the run of set bits (possibly length 0) starting at bit n cleared.
+// x &amp; ~(x + (1 &lt;&lt; n)) = the run of set bits (possibly length 0) in x, starting at bit n.
+// x | (x + 1) = x with the lowest cleared bit set.
+// x | ~(x + 1) = extracts the lowest cleared bit of x (all others are set).
+// x | (x - (1 &lt;&lt; n)) = x, with the run of cleared bits (possibly length 0) starting at bit n set.
+// x | ~(x - (1 &lt;&lt; n)) = the lowest run of cleared bits (possibly length 0) in x, starting at bit n are the only clear bits.</code></pre><h2 id="e5d3ad4c-2150-4d45-b148-7d69280c3547" class="">LPS for KMP algorithm</h2><pre id="7a87ec8b-8e34-4296-9ba1-5e076bacbcbd" class="code"><code>int lps(string s)
+	{
+	    int len = 0, n = s.size(), i = 1;
+      int lps[n];
+
+      lps[0] = 0;
+			// initially i = 1 and len = 0
+      while (i &lt; n)
+      {
+         if (s[i] == s[len])
+         {
+             len++;
+             lps[i] = len;
+             i++;
+         }
+         else
+         {
+            if (len != 0) len = lps[len-1];
+            else 
+            {
+               lps[i] = 0;
+               i++;
+            }
+         }
+      }
+      return len;
+			-----------
+			// If we want to give the longest non overlapping prefix-suffix then that length can utmost be n/2
+			// Therefore - 
+			// return (len &gt; n/2) ? n/2 : len;
+			-----------
+			// If we want to see if the string is multiple repetition of a substring
+			// then n should be divisible by (n-j) given j&gt;0; then length of the substring repeating will be n-j;
+	}</code></pre><h2 id="593dbe1b-ef10-4be7-a104-68a5f7df5e78" class="">LCM of N numbers modulo mod</h2><pre id="5d191012-6319-4a6a-bcc0-62224e94f9c8" class="code"><code>int MAX = 100000;
+int prime[100000];
+void sieve(){
+    prime[0] = prime[1] = 1;
+    for (int i = 2; i &lt; MAX; i++) {
+        if (prime[i] == 0) {
+            for (int j = i * 2; j &lt; MAX; j += i) {
+                if (prime[j] == 0) {
+                    prime[j] = i;
+                }
+            }
+            prime[i] = i;
+        }
+    }
+}  // sieve method to find the smallest factor of a number
+ 
+int lcm (vector&lt;int&gt; time, int m){
+    unordered_map&lt;int, int&gt; fact;
+    for (auto ele: time){
+        unordered_map&lt;int, int&gt; tmp;
+        int num = ele;
+        while (num &gt; 1) {
+            int factor = prime[num];
+            tmp[factor]++;
+            num /= factor;
+        }
+        for(auto it : tmp) fact[it.first] = max(fact[it.first], it.second);
+    }
+    
+    long long ans = 1ll;
+    for (auto it : fact) ans = (1ll * ans * power(it.first, it.second, m)) % m;
+    return (int)ans;
+}</code></pre><h2 id="620e0211-7aee-4e30-9f2f-117d7e59a4f4" class="">Sliding Window</h2><h3 id="c4e0d578-6bc4-43f3-85bd-4451ebf7f39c" class="">Sliding Window max</h3><pre id="925af2e6-484a-459d-bc78-e7eb13deb56e" class="code"><code>vector&lt;int&gt; slidingMaximum(const vector&lt;int&gt; &amp;A, int B) {
+    int n = A.size(), i = 0, j =0;
+    vector&lt;int&gt; ans;
+    deque&lt;int&gt; q;
+    while(j &lt; n){
+        while(!q.empty() &amp;&amp; q.back() &lt; A[j]) q.pop_back();
+        q.push_back(A[j]);
+        if (j-i+1 &lt; B) j++;
+        else{
+            ans.push_back(q.front());
+            if(q.front() == A[i]) q.pop_front();
+            i++, j++;
+        }
+    }
+    return ans;
+}</code></pre><h3 id="d5ce23bc-e4c0-47bd-a0aa-2806cc0bc5e7" class="">Longest substring with no repetition</h3><pre id="b5a654fc-e16d-47fb-aa0f-e2b26da24007" class="code"><code>int lengthOfLongestSubstring(string s) {
+    int i = 0, j = 0, n = s.size(), len = 0;
+    int mp[256] = {0};
+    while(j &lt; n){
+        while(mp[s[j]] != 0)    mp[s[i++]]--;
+    
+        len = max(len, j-i+1);
+        mp[s[j++]]++;
+    }
+    return len;
+}</code></pre><h2 id="eda8ac20-b269-4e3c-801b-52c609d7f7db" class="">Reverse a doubly-linked list in K-groups</h2><pre id="83d06c23-3f81-426d-91fe-1a242bcce414" class="code"><code>Node* reverseByN(Node* head, int k, Node* bef)
+{
+	if (!head) return NULL;
+  
+	Node *prev = NULL, *curr = head, *next = NULL;
+	int count = 0;
+	while (curr != NULL &amp;&amp; count &lt; k) {
+				next = curr-&gt;next;
+        curr-&gt;next = prev;
+      	curr-&gt;prev = next;
+      
+      	prev = curr;
+      	curr = next;
+				count++;
+	}
+   	
+	prev-&gt;prev = bef;
+	if (next != NULL) {
+			head-&gt;next = reverseByN(curr, k, head);
+	}
+	return prev;
+}
+
+// Initially call as -- reverseByN(head, n, NULL);
+// Init NULL as prev of first element should be NULL;
+
+
+------------------OR---------------------------
+//better only two params
+Node* reverseByN(Node* head, int k)
+{
+	if (!head) return NULL;
+  
+	Node *prev = NULL, *curr = head, *next = NULL;
+	int count = 0;
+	while (curr != NULL &amp;&amp; count &lt; k) {
+				next = curr-&gt;next;
+        curr-&gt;next = prev;
+      	curr-&gt;prev = next;
+      
+      	prev = curr;
+      	curr = next;
+				count++;
+	}
+   	
+	if (next != NULL) {
+			head-&gt;next = reverseByN(curr, k);
+    	head-&gt;next-&gt;prev = head;
+	}
+	prev-&gt;prev = NULL; // just to make sure that the prev of the very first node is pointing to NULL
+	return prev;
+}</code></pre><h2 id="72a7440d-51fb-49bd-9662-3aebdfa31a69" class="">Stock Span Problem</h2><pre id="5b82e6b2-ec71-4e7a-a062-c879254b6c4f" class="code"><code>vector &lt;int&gt; calculateSpan(int price[], int n)
+    {
+        //Kind of an extension to the next greater element to the left
+        stack&lt;int&gt; s;
+        vector&lt;int&gt; ans(n, 0);
+        for (int i = n-1; i &gt;=0 ;i--){
+            while(!s.empty() &amp;&amp; price[s.top()]&lt;price[i]){
+                ans[s.top()] = s.top()-i;
+                s.pop();
+            }
+            s.push(i);
+        }
+        while(!s.empty()){
+            ans[s.top()] = s.top()+1;
+            s.pop();
+        }
+        return ans;
+    }</code></pre><h2 id="ca1baa64-6a2d-4f31-b997-cdeface818b8" class="">Dividing a number (string)</h2><pre id="754b8f16-6027-4b9e-b22e-977ab79a3c0a" class="code"><code>string divide(string tmp, int divisor = 2){
+    int n = tmp.size(), num = 0;
+    string ans = &quot;&quot;;
+    for (int i = 0; i &lt; n; i++) {
+        num = num * 10 + (tmp[i] - &#x27;0&#x27;);
+        if (num &lt; divisor &amp;&amp; i == 0) continue;
+
+        ans.push_back((num / divisor) + &#x27;0&#x27;);
+        num = num % divisor;
+    }
+    return ans;
+}</code></pre><h2 id="66309832-2a65-4a2f-bab5-b74da6ad1a92" class="">Trie</h2><pre id="5f6771af-1a9e-400d-bb1b-70409e4c857f" class="code"><code>struct trie{
+    struct trie* children[26];
+    bool isLeaf;
+    int occ;
+};
+
+struct trie* getNode(){
+    struct trie* nNode = new trie;
+    nNode-&gt;isLeaf = false;
+    nNode-&gt;occ = 0;
+    for (int i = 0; i &lt; 26; i++){
+        nNode-&gt;children[i] = NULL;
+    }
+    return nNode;
+}
+
+void insert(struct trie* root, string word){
+    struct trie* node = root;
+    for(auto c: word){
+        if(!node-&gt;children[c-&#x27;a&#x27;]){
+            node-&gt;children[c-&#x27;a&#x27;] = getNode();
+        }
+        node-&gt;occ++;
+        node = node-&gt;children[c-&#x27;a&#x27;];
+    }
+		node-&gt;occ++;
+    node-&gt;isLeaf = true;
+}
+
+bool find(struct trie* root, string word){
+    struct trie* tmp = root;
+    for(auto c: word){
+        if(!tmp-&gt;children[c-&#x27;a&#x27;]) return false;
+        tmp = tmp-&gt;children[c-&#x27;a&#x27;];
+    }
+    
+    return tmp-&gt;isLeaf;
+}</code></pre><h2 id="f377c169-47d0-49e0-a5b8-4488de308873" class="">Segment Tree (RMQ)</h2><pre id="13fc7d61-0eb2-4d9e-9e8e-12a9322927f4" class="code"><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+vector&lt;int&gt; tree(5e5+5, 0);
+
+void build(int val[], int start, int end, int node){
+	if (start == end){
+		tree[node] = val[start];
+		return;
+	}
+	int mid = (start+end)/2;
+	build( val, start, mid, 2*node);
+	build( val, mid+1, end, 2*node+1);
+
+	tree[node] = tree[2*node] &lt; tree[2*node+1] ? tree[2*node] : tree[2*node+1];
+}
+
+int query(int l, int r, int start,int end, int node){
+	if(r &lt; start || l &gt; end) return INT_MAX;
+	if(start &gt;= l &amp;&amp; end &lt;= r) return tree[node];
+
+	int mid = (start+end)/2;
+	int t1 = query(l, r, start, mid, 2*node);
+	int t2 = query(l, r, mid+1, end, 2*node+1);
+
+	return t1 &lt; t2 ? t1 : t2;
+}
+
+void update(int val[], int start, int end, int node, int idx, int rep){
+	if(start == end){
+		val[idx] = rep;
+		tree[node] = rep;
+		return;
+	}
+
+	int mid = (start+end)/2;
+	if (idx &gt;= start &amp;&amp; idx &lt;= mid) update(val, start, mid, 2*node, idx, rep);
+	else update(val, mid+1, end, 2*node+1, idx, rep);
+	
+	tree[node] = tree[2*node] &lt; tree[2*node+1] ? tree[2*node] : tree[2*node+1];
+}
+
+int main(){
+	int n, q; 
+  scanf(&quot;%d %d&quot;, &amp;n, &amp;q);
+	int val[100005];
+	for (int i = 0; i &lt; n; i++) cin &gt;&gt; val[i];
+	build(val, 0, n-1, 1);
+
+	while(q--){
+		char c; cin &gt;&gt; c;
+		int a, b; 
+    scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+		if (c == &#x27;q&#x27;)  cout &lt;&lt; query(a-1, b-1, 0, n-1, 1) &lt;&lt; endl;
+		else	update(val, 0, n-1, 1, a-1, b);
+	}
+	return 0;
+}</code></pre><h2 id="a6367b1c-9ce9-4785-a074-c090fda278dd" class="">Binary Tree</h2><h3 id="70834bab-5419-48da-aecc-712ef366c3f3" class="">Largest BST Subtree</h3><pre id="40f655ea-1274-4eb0-a960-ca844cf45a3d" class="code"><code>struct data{
+    bool isbst;
+    int len;
+    int min;
+    int max;
+    data() : isbst(true), len(0), min(INT_MAX), max(INT_MIN) {}
+};
+
+int finas = 0;
+struct data traverse(Node* root){
+    if(!root) return data();
+    
+    data t1 = traverse(root-&gt;left);
+    data t2 = traverse(root-&gt;right);
+    
+    data t = data();
+    
+    if(!t1.isbst || !t2.isbst || t1.max &gt;= root-&gt;data || t2.min &lt;= root-&gt;data){
+        t.isbst = false;
+        t.len = max(t1.len, t2.len);
+        return t;
+    }
+    
+    t.len = t1.len + t2.len + 1;
+    t.min = root-&gt;left ? t1.min : root-&gt;data;
+    t.max = root-&gt;right ? t2.max : root-&gt;data;
+    return t;
+}
+
+
+
+int largestBst(Node *root)
+{
+    data ans = traverse(root);
+    return ans.len;
+}</code></pre><h2 id="bf653276-6ec9-44ca-be79-a71f3464f8e6" class="">Dynamic Programming</h2><h3 id="aac2767d-0a85-45a6-898f-20ad8b517218" class="">Longest Increasing Subsequence</h3><p id="bb546863-b9ab-4fe8-a0ce-4bdad112702a" class=""><code>O(n*n)</code></p><pre id="c4fa860e-9107-41f6-881f-e3118a9a362e" class="code"><code>// O(n*n)
+int ret_lis(int arr[], int n)
+{
+    int lis[n];
+    lis[0] = 1;
+		int res = 1;
+    for (int i = 1; i &lt; n; i++) {
+        lis[i] = 1;
+        for (int j = 0; j &lt; i; j++)
+            if (arr[i] &gt; arr[j] &amp;&amp; lis[i] &lt; lis[j] + 1)
+                lis[i] = lis[j] + 1;
+				res = max(res, lis[i]);
+    }
+	  return res;
+}</code></pre><p id="bcdc3366-106c-4747-9fbb-809fd4f0f717" class=""><code>O(nlogn)</code></p><pre id="cafed97f-66a2-4615-8e63-937198225750" class="code"><code>int ret_lis(int arr[], int n)
+{
+		lis.push_back(arr[0]);
+    for (int i = 1; i &lt; n; i++){
+        if(lis.back() &lt; arr[i]) lis.push_back(arr[i]);
+        else{
+            int idx = lower_bound(lis.begin(), lis.end(), arr[i]) - lis.begin();
+            lis[idx] = arr[i];
+        }
+    }
+	  return lis.size();
+}</code></pre><h3 id="cf8383ae-7e65-46cd-aa49-2354cc6b7b76" class="">Longest Common Subsequence</h3><pre id="d08c20f1-5bbf-47b0-a38a-7812d3e165eb" class="code"><code>int lcs(int x, int y, string s1, string s2)
+{
+    int dp[x+1][y+1];
+    for (int i = 0; i &lt; x+1; i++){
+        for(int j = 0; j &lt; y+1; j++){
+            if(i == 0 || j == 0) dp[i][j] = 0;
+            else if(s1[i-1] == s2[j-1]) dp[i][j] = 1 + dp[i-1][j-1];
+            else{
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
+            }
+        }
+    }
+    return dp[x][y];
+}</code></pre><h3 id="4bd2636c-2319-454a-816a-7d13ebd644b5" class="">Longest Palindromic subsequence</h3><pre id="2bea7ec4-84ed-4bc6-a2b7-b4ed9f8873ff" class="code"><code>int longestPalindromeSubseq(string A) {
+    int n = A.size();
+    int dp[n][n];
+    for (int i = 0; i &lt; n; i++) dp[i][i] = 1;
+
+    for (int i = n-1; i &gt;= 0; i--){
+        for (int j = i+1; j &lt; n; j++){
+            if(A[i]==A[j]){
+                if(j == i+1) dp[i][j] = 2;
+                else dp[i][j] = 2+dp[i+1][j-1];
+            }
+            else dp[i][j] = max(dp[i+1][j], dp[i][j-1]);
+        }
+    }
+    return dp[0][n-1];
+}</code></pre><h3 id="7ca95584-6448-4e26-991d-c66c2c365ca8" class="">Matrix Chain Multiplication</h3><pre id="ae4fd255-5a62-4f45-909d-328c1f6b46b7" class="code"><code>int matrixMultiplication(int N, int arr[])
+{
+    int dp[N][N];
+    for (int i = 1; i &lt; N; i++ ) dp[i][i] = 0;
+    
+    for (int l = 2; l &lt; N; l++){
+        for (int i = 1; i &lt;= N-l; i++){
+            int j = i+l-1; dp[i][j] = INT_MAX;
+            for(int k = i; k &lt; j; k++){
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + arr[i-1] * arr[k] * arr[j]);
+            }
+        }
+    }
+    return dp[1][N-1];</code></pre><h3 id="25033482-170d-4f9a-aaef-e7c6077b04fc" class="">Maximum profit by buying and selling max K times</h3><pre id="9ab49788-cd91-4726-af88-8a37c5b8ced5" class="code"><code>int maxProfit(int K, int N, int A[]) {
+	      int dp[K+1][N];
+        for (int i = 0; i &lt;= K; i++){
+            int val = INT_MIN;
+            for (int j = 0; j &lt; N; j++){
+                if(i==0 || j==0) dp[i][j] = 0;
+                else{
+                    val = max(val, dp[i-1][j-1] - A[j-1]);   // this accounts for simple optimisation. Check gfg if doubt
+                    dp[i][j] = max(val+A[j],dp[i][j-1]);
+                }   
+            }
+        }
+        return dp[K][N-1];
+    }</code></pre><h3 id="74986e8f-edb0-4919-aefd-d893057f31bb" class="">Count Number of subset with given sum</h3><pre id="13ce97bb-1171-495c-b67d-3408504961a2" class="code"><code>int countSubsetSum(vector&lt;int&gt;&amp;A, int k) {
+    int n=A.size();
+    int T[n+1][k+1];
+    memset(T,0,sizeof(T));
+    int count=0;
+    for(int i=0;i&lt;=n;i++){
+        for(int j=0;j&lt;=k;j++){
+            if(j==0) {T[i][j]=1;continue;}
+            if(i==0){
+                T[i][j]=0; continue;
+            }
+            if(A[i-1]&gt;j) T[i][j]=A[i-1][j];
+            else{
+                T[i][j]=T[i-1][j]+T[i-1][j-A[i-1]]);
+            }
+        }
+    }
+    return T[n][k];           
+}</code></pre><h3 id="99a413a5-0a26-4d7b-b24c-09fad1c4f6a6" class="">Subset sum with restriction on size</h3><pre id="71e6701d-a98b-4f6f-a6e2-80d8269f4be3" class="code"><code>int dp[201][201][201], mod = 1e9+7;
+int solve(int sum, int size, int n){
+    if(n == 0) return 0;
+    if(sum == 0 &amp;&amp; size == 0)   return 1;
+    if(size &lt; 0) return 0;
+ 
+    if(dp[sum][size][n] != -1) return dp[sum][size][n];
+    if(n &gt; sum) return dp[sum][size][n] = solve(sum, size, n-1) % mod;
+    else return dp[sum][size][n] = (solve(sum-n, size-1, n)%mod + solve(sum, size, n-1)%mod)%mod;
+}
+
+// Better code -&gt; Ramanujan&#x27;s Approach
+
+int dp[4001][4001];
+int mod = 1e9+7;
+int solve(int sum, int size){
+    if(sum == 0 &amp;&amp; size == 0) return 1; 
+    if (sum &lt;= 0 || size &lt;= 0) return 0;
+
+    if(dp[sum][size] != -1) return dp[sum][size] % mod;
+    return dp[sum][size] = (solve(sum-size, size) % mod + solve(sum-1, size-1) % mod) % mod;
+}</code></pre><h3 id="c861b21f-6298-4538-aa75-6ac71c17ae6e" class="">Matrix DP : Max size that all square sub grid have sum &lt; k</h3><pre id="b585528d-3de2-4cf5-a53f-fc7d9caa688a" class="code"><code>bool isOK(vector&lt;vector&lt;int&gt; &gt;&amp; pref, int k, int val){
+    int n = pref.size();
+    int sum = 0;
+    for (int i = k; i &lt; n; i++){
+        for (int j = k; j &lt; n; j++){
+            sum = pref[i][j] - pref[i-k][j] - pref[i][j-k] + pref[i-k][j-k] ;
+            if (sum &gt; val) return false;
+        }
+    }
+    return true;
+}
+
+int largestSubgrid(vector&lt;vector&lt;int&gt;&gt; grid, int k)
+{
+    int n = grid.size();
+    vector&lt;vector&lt;int&gt; &gt; pref(n+1, vector&lt;int&gt;(n+1, 0));
+
+    for (int i = 1; i &lt;= n; i++){
+        for (int j = 1; j &lt;= n; j++){
+            pref[i][j] = grid[i-1][j-1] + pref[i-1][j] + pref[i][j-1] - pref[i-1][j-1];
+        }
+    }
+
+    int l = 0, r = n, res = 0;
+    while(l &lt;= r){
+        int mid = (l+r)/2;
+        if (isOK(pref, mid, k)){
+            l = mid + 1;
+            res = mid;
+        }
+        else r = mid - 1;
+    }
+    return res;
+}</code></pre><h3 id="ba6565f0-194e-49cf-a88f-4553bb0f2473" class="">Regular Expression Matching</h3><pre id="4c89946e-c4a3-41fb-a141-e3c53484cd8a" class="code"><code>bool isMatch(string s, string p) {
+    int n = s.size(), m = p.size();
+    vector&lt;vector&lt;bool&gt; &gt; dp(m+1, vector&lt;bool&gt;(n+1, false));
+    
+    for(int i = 0; i &lt; m+1; i++){
+        for (int j = 0; j &lt; n+1; j++){
+            if(i == 0 &amp;&amp; j == 0) dp[i][j] = true;
+            else if (i == 0) dp[i][j] = false;
+            else if (j == 0 ){
+                if(p[i-1] == &#x27;*&#x27;)   dp[i][j] = dp[i-2][j];
+            }
+            else if(p[i-1] == s[j-1] || p[i-1] == &#x27;.&#x27;) dp[i][j] = dp[i-1][j-1];
+            else if (p[i-1] == &#x27;*&#x27;){
+                if(p[i-2] == s[j-1] || p[i-2]==&#x27;.&#x27;) dp[i][j] = dp[i-2][j] || dp[i][j-1];
+                else dp[i][j] = dp[i-2][j];
+            }
+        }
+    }
+    
+    return dp[m][n];
+}</code></pre><h3 id="32708acc-3584-4f65-98cf-844f494f93bc" class="">Minimum number of coins required to form sum </h3><pre id="dff89538-6cef-49f3-835d-17abc2dc1a07" class="code"><code>int coinChange(vector&lt;int&gt;&amp; coins, int amount) {
+    int n = coins.size(), dp[n+1][amount+1];
+    for(int i = 0; i &lt;= n; i++) dp[i][0] = 0;
+    for(int i = 0; i &lt;= amount; i++) dp[0][i] = INT_MAX - 10;
+    for (int i = 1; i &lt;= amount; i++) dp[1][i] =(i % coins[0] == 0) ? i / coins[0] : INT_MAX - 10;
+    
+    for (int i = 2; i &lt;= n; i++){
+        for(int j = 1; j &lt;= amount; j++){
+            if(coins[i-1] &gt; j) dp[i][j] = dp[i-1][j];
+            else dp[i][j] = min(dp[i-1][j], dp[i][j-coins[i-1]] + 1);
+        }
+    }
+    return dp[n][amount] == INT_MAX - 10 ? -1 : dp[n][amount];
+}
+
+
+//// O(n) space
+int coinChange(vector&lt;int&gt;&amp; coins, int amount) {
+    int Max = amount + 1;
+    vector&lt;int&gt; dp(amount + 1, Max);
+    dp[0] = 0;
+    for (int i = 1; i &lt;= amount; i++) {
+        for (int j = 0; j &lt; coins.size(); j++) {
+            if (coins[j] &lt;= i) {
+                dp[i] = min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+    }
+    return dp[amount] &gt; amount ? -1 : dp[amount];
+}
+</code></pre><p id="9feb0287-887b-40a0-9d1e-1df35f5b4b84" class="">
+</p><h2 id="df9f456c-3ef6-4c70-b3d7-206606faae7c" class="">Greedy Algorithm</h2><h3 id="b67ac5f6-78f4-4d35-81f0-52e6d094eec7" class="">Minimum jumps to reach end of array</h3><pre id="3323170e-94e2-4ab6-9f3d-b489051059b6" class="code"><code>int minJumps(int arr[], int n){
+        // return solve(arr, 0, n);
+        if(n &lt;= 1) return 0;
+        
+        int jumps = 1, ladder = arr[0], steps = arr[0];
+        for(int i = 1; i &lt; n; i++){
+            if(ladder &lt; i) return -1; // can&#x27;t reach end in this case
+            if(steps == 0){
+                jumps++;
+                steps = ladder - i + 1;
+            }
+            ladder = max(ladder, i+arr[i]);
+            steps--;
+            
+        }
+        return jumps;
+    }</code></pre><p id="72daa1c8-2d92-4272-984f-d60b2e6870dc" class=""><code>Hint</code> <a href="https://www.youtube.com/watch?v=vBdo7wtwlXs">https://www.youtube.com/watch?v=vBdo7wtwlXs</a></p><h3 id="e90f5e2d-1e5e-409d-a384-a5ed2cdca731" class="">Job Sequencing Problem</h3><pre id="bce3048a-a051-4843-bc03-f0befe353e23" class="code"><code>/*
+struct Job 
+{ 
+    int id;	 // Job Id 
+    int dead; // Deadline of job 
+    int profit; // Profit if job is over before or on deadline 
+};
+*/
+bool cmp(Job&amp; a, Job&amp; b){
+    return a.profit &gt; b.profit;
+}
+
+vector&lt;int&gt; JobScheduling(Job arr[], int n) 
+{ 
+    sort(arr, arr+n, cmp);
+    vector&lt;int&gt; status(n+1, -1);
+    int cnt = 0, prof = 0; 
+    
+    for(int i = 0; i &lt; n; i++){
+        int j = arr[i].dead;
+        while(status[j] != -1) j--;
+        if(j &gt; 0) cnt++, prof += arr[i].profit, status[j] = 1;
+    }
+    
+    return {cnt, prof}; // returns number of jobs performed and profit made
+}</code></pre><h2 id="bf76c791-8025-460a-b7f8-044f64be5e5f" class="">Heap </h2><h3 id="00bd0567-ff25-4fc5-b7c6-c4353e9c0bc9" class="">Median of running stream of numbers</h3><pre id="e53e10f0-d620-4b46-b5f6-9c97f57e8bbc" class="code"><code>class RollingMedian {
+    int count = 0;
+    priority_queue&lt;int&gt; left;
+    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt; &gt; right;
+    
+    public:
+    RollingMedian() {
+        count = 0;
+        while(!left.empty()) left.pop();
+        while(!right.empty()) right.pop();
+    }
+    void add(int val) {
+        count ++;
+        if (count == 1)
+            left.push(val);
+        }
+        else if(count&amp;1){
+            right.push(val);
+            left.push(right.top());
+            right.pop();
+        }
+        else{
+            left.push(val);
+            right.push(left.top());
+            left.pop();       
+        }
+    }
+
+    double median() {
+        if (count&amp;1) return left.top();
+        return (1.0*left.top() + right.top() )/2.0;
+    }
+};</code></pre><h3 id="b32830ae-7830-4c27-9eef-835addf903e6" class="">Max profit selling ticket [Heap alternate optimized]</h3><p id="42f3b544-576e-4a31-8009-8e1d924713da" class=""><strong>Price of ticket proportional to the amount of the type</strong></p><pre id="09d4a7e1-9269-4859-a873-f62f8efbd5a4" class="code"><code>long long maximumAmount(vector&lt;int&gt; &amp;a, long long k)
+{
+	sort(a.begin(), a.end(), greater&lt;int&gt;());
+	long long ans = 0, i = 0, j = 1, n = a.size();
+ 
+	while (k &gt; 0 &amp;&amp; j &lt; n){
+		if (a[i] &gt; a[j]){  // a[i] to a[j-1] are assumed to be equal
+			ans += 1ll*min(k, j-i)*a[i];
+			k -= (j-i);
+			a[i]--;
+		}
+		else{
+			while(j &lt; n &amp;&amp; a[i] == a[j]) j++;
+		}
+	}
+ 
+  // when all are equal
+	while(k &gt; 0 &amp;&amp; a[i] != 0){
+		ans += min(k, n) * a[i];
+		k -= n;
+		a[i]--;
+	}
+ 
+	return ans;
+}</code></pre><h2 id="259a9f40-5db4-4393-8d8a-a70b59ccdc20" class="">Graph Algorithm</h2><h3 id="634cd641-ae96-47e2-9209-afbb5bb0a54c" class="">Kahn Algorithm for Topological Sort</h3><pre id="93348ee2-194f-4909-8824-b8500de5a73d" class="code"><code>int kahn(int A, vector&lt;int&gt; &amp;B, vector&lt;int&gt; &amp;C) {
+	  // Create the adjacency matrix and calculate the indegree of each node
+    vector&lt;int&gt; adj[A+1], indegree(A+1);
+    for (int i = 0; i &lt; B.size(); i++){
+        adj[B[i]].push_back(C[i]);
+        indegree[C[i]]++;
+    }
+    
+    queue&lt;int&gt; q; 
+    for (int i = 1; i &lt;= A; i++) if (indegree[i]==0) q.push(i); //the nodes with indegree 0 will act as the source
+    
+    int size = 0;
+    while(!q.empty()){
+        int u = q.front();
+        q.pop();
+				// cout &lt;&lt; u &lt;&lt; &quot; &quot;;  //-&gt;this line will the print the nodes in topologically sorted order
+				size++;
+        for (auto v : adj[u]){
+            if(--indegree[v] == 0) q.push(v);
+        }
+    }
+    return size==A;
+}</code></pre><h3 id="ccb04107-96ad-43a4-9fbf-d7987021362f" class="">Articulation Point</h3><pre id="4e607c3a-5e61-493e-899b-e63adf729005" class="code"><code>vector&lt;int&gt; ans;
+void dfs(vector&lt;int&gt; adj[], vector&lt;int&gt;&amp; dis, vector&lt;int&gt;&amp; low, vector&lt;bool&gt;&amp; vis, vector&lt;bool&gt;&amp; isArt ,int &amp;time, int pi, int u){
+    vis[u] = true; 
+    int children = 0;
+    dis[u] = low[u] = ++time;
+    
+    for (auto v : adj[u]){
+				if(v == pi) continue;
+        if(!vis[v]){
+            children ++;
+            dfs(adj, dis, low, vis, isArt, time, u, v);
+            low[u] = min(low[u], low[v]);
+            if (pi != -1 &amp;&amp; dis[u] &lt;= low[v] &amp;&amp; !isArt[u]){
+                ans.push_back(u);
+                isArt[u] = true;
+            }
+        }
+        else low[u] = min(low[u], dis[v]);
+    }
+    if (pi == -1 and children &gt; 1) ans.push_back(u);
+}
+
+vector&lt;int&gt; articulationPoints(int V, vector&lt;int&gt;adj[]) {
+    vector&lt;bool&gt; vis(V, false), isArt(V, false);
+    vector&lt;int&gt; dis(V), low(V);
+    int time = 0;
+    for (int u = 0; u &lt; V; u++){
+        if(!vis[u]) dfs(adj, dis, low, vis, isArt, time, -1, u);
+    }
+
+    return ans;
+}</code></pre><h3 id="08d2b178-37cc-4394-a975-93da0e68c7fb" class="">Bridge in graph</h3><pre id="02a48918-6720-40aa-8960-2c4b5f2c8a6c" class="code"><code>vector&lt;vector&lt;int&gt; &gt; ans;
+void dfs(vector&lt;int&gt; adj[], vector&lt;int&gt;&amp; dis, vector&lt;int&gt;&amp; low, vector&lt;bool&gt;&amp; vis,              int &amp;time, int pi, int u){
+    vis[u] = true; 
+    int children = 0;
+    dis[u] = low[u] = ++time;
+    
+    for (auto v : adj[u]){
+        if(v == pi) continue;
+        if(!vis[v]){
+            children ++;
+            dfs(adj, dis, low, vis, time, u, v);
+            low[u] = min(low[u], low[v]);
+            
+            if(low[v] &gt; dis[u]) ans.push_back({u, v});
+        }
+        else low[u] = min(low[u], dis[v]);
+    }
+}
+
+vector&lt;vector&lt;int&gt;&gt; criticalConnections(int n, vector&lt;vector&lt;int&gt;&gt;&amp; connections) {
+    vector&lt;int&gt; adj[n];
+    for (auto v : connections){
+        adj[v[0]].push_back(v[1]);
+        adj[v[1]].push_back(v[0]);
+    }
+    vector&lt;bool&gt; vis(n, false);
+    vector&lt;int&gt; dis(n), low(n);
+    int time = 0; 
+    
+    for(int u = 0; u &lt; n; u++){
+        if(!vis[u]) dfs(adj, dis, low, vis, time, -1, u);
+    }
+    return ans;
+}</code></pre><h3 id="5831c235-5ff8-4d9a-9803-84c1914dea77" class="">Dijkstra Algorithm ( O( V+E log(V)) ) </h3><pre id="475c7704-3bc6-4b93-9941-1a06f361563d" class="code"><code>vector &lt;int&gt; dijkstra(int V, vector&lt;vector&lt;int&gt;&gt; adj[], int S){
+    vector&lt;int&gt; dist(V+1, INT_MAX);
+
+    priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt; &gt; pq;
+    pq.push({0, S});
+    dist[S] = 0;
+    
+    while(!pq.empty()){
+        int u = pq.top().second;
+        pq.pop();
+    
+        for (auto vec : adj[u]){
+            int v = vec[0];
+            int d = vec[1];
+            
+            if(dist[u] + d &lt; dist[v]){
+                dist[v] = dist[u] + d;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    
+    return dist;
+}</code></pre><h3 id="da1b3663-2185-44dd-afc5-de2d22405be8" class="">Prim&#x27;s Algorithm for Minimum Spanning Tree ( O(E log(V) ) )</h3><pre id="42c16220-21b1-4c40-804c-a29ad4bcb225" class="code"><code>typedef pair&lt;int, int&gt; pi;
+int spanningTree(int V, vector&lt;vector&lt;int&gt;&gt; adj[]){
+    priority_queue&lt;pi, vector&lt;pi&gt;, greater&lt;pi&gt; &gt; pq;
+    bool mst[V] = {false};
+    vector&lt;int&gt; mst_wt(V, INT_MAX), parent(V, -1);// stores the min wt from parent to V, parent stores the parent
+    
+    int min_wt = 0;
+    mst_wt[0] = 0;
+    pq.push({0, 0});
+    
+    while(!pq.empty()){
+        int d = pq.top().first;
+        int u = pq.top().second;
+        pq.pop();
+
+        if (mst[u]) continue;
+
+        min_wt += d;
+        mst[u] = true;
+        
+        for(auto vec : adj[u]){
+            int v = vec[0], wt = vec[1];
+            if(!mst[v] &amp;&amp; wt &lt; mst_wt[v]){
+                pq.push({wt, v});
+                mst_wt[v] = wt;
+                parent[v] = u;
+            }
+        }
+    }
+    return min_wt;
+}</code></pre><h3 id="f8010d95-2593-4d21-af06-85e865ae7eda" class="">Kruskal&#x27;s Algorithm for MST ( O(E log(V) ) )</h3><pre id="754293ba-6fb3-4aad-bbf9-5b3f03042b3e" class="code"><code>int parent[1001];
+  
+int find_parent(int x){
+    if(x==parent[x]) return x;
+    return parent[x] = find_parent(parent[x]);
+}
+
+void union1(int x, int y){
+    parent[find_parent(x)] = find_parent(y);
+}
+
+int spanningTree(int V, vector&lt;vector&lt;int&gt;&gt; adj[])
+{
+    vector&lt;vector&lt;int&gt; &gt; wts; 
+    for (int i = 0; i &lt; 1001; i++) parent[i]=i;
+    
+    for (int u = 0; u &lt; V; u++){
+        for(auto v : adj[u]){
+            wts.push_back({v[1], u, v[0]});
+        }
+    }
+    
+    sort(wts.begin(), wts.end()); // sort in ascending order based on weight
+    
+    int min_wt = 0;
+    
+    for (auto vec : wts){
+        int wt = vec[0], u = vec[1], v = vec[2];
+        if(find_parent(u) != find_parent(v)){
+            min_wt += wt;
+            union1(u, v);
+        }
+    }
+    
+    return min_wt;
+}</code></pre><h3 id="9d91dfe2-fb61-47bb-be17-740ed8c8b74e" class="">Bellman Ford Algorithm (for min dist of all nodes from source) (O(VE))</h3><p id="bb27ddaf-f859-491d-b554-e804523b688f" class=""><code>Works only on directed graph. Does not work when there is</code><strong><code>negative cycle</code></strong></p><p id="52118029-2d67-4f8b-a8c6-3cf44029407b" class=""><code>For undirected graph, first we convert it into directed. Here it does not work when wt is negative, as it will cause the formation of negative cycle</code> </p><p id="52912ee4-c558-42a4-9e4d-659f6102d3a0" class=""><strong>Note</strong>: Negative cycle. Not negative weight </p><pre id="0b55fbf4-c8d7-43b8-bbfb-451dce471ba0" class="code"><code>int isNegativeWeightCycle(int n, vector&lt;vector&lt;int&gt;&gt;edges){
+	    vector&lt;int&gt; dist(n, 100000); //infinity
+	    dist[0] = 0; // put distance of source to 0
+	    for(int i = 1; i &lt; n; i++){ //relax n-1 times, as the maximum edge between two nodes be n-1
+	        for(auto vec : edges){
+	            int u = vec[0], v = vec[1], wt = vec[2];
+	            if (dist[u] + wt &lt; dist[v]) dist[v] = dist[u] + wt;
+	        }
+	    }
+	    
+	    for(auto vec : edges){
+            int u = vec[0], v = vec[1], wt = vec[2];
+            if (dist[u] + wt &lt; dist[v]) return 1; // Negative cycle. Bellman ford wont work
+        }
+        
+				// return the dist array for distance of every node from the source
+        return 0;
+	}</code></pre><h3 id="aee201a6-0f9b-4cf3-9619-e7adc116ae7e" class="">Floyd-Warshall Algorithm (All pair shortest path) O(V3)</h3><pre id="b007bc48-b22e-4f3c-ab09-262c014c7883" class="code"><code>vector&lt;vector&lt;int&gt; &gt; floyd_marshall(int n, vector&lt;int&gt; edges[]){
+	// nodes are numbered 0 to n-1  O(n3)
+  // edges are given in adjacency list format, here it is undirected graph
+	vector&lt;vector&lt;int&gt; &gt; dist(n, vector&lt;int&gt;(n, 0));
+	for (auto v : edges){
+	    dist[v[0]][v[1]] = v[2];
+	    dist[v[1]][v[0]] = v[2];
+	}
+	
+	for(int i =0 ; i &lt; n; i++){
+	    for (int j = 0; j &lt; n; j++){
+	        if(!dist[i][j]) dist[i][j] = INT_MAX;
+	    }
+	    dist[i][i] = 0;
+	}
+	
+	for (int k = 0; k &lt; n; k++){ // introducing each node one by one
+	    for (int i = 0; i &lt; n; i++){
+	        for (int j = 0; j &lt; n; j++){
+	            if(dist[i][k] == INT_MAX or dist[k][j] == INT_MAX) continue;
+	            else dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+	        }
+	    }
+	}
+
+	return dist;
+}</code></pre><p id="31b21d21-3cd7-4d63-af70-3df93569cedf" class=""><code>note:- </code> the distance from a node to itself (i.e. diagonal element) is always 0.</p><p id="59169ae7-0bbb-40f5-895c-3a910f5d63fe" class="">                     If less than 0 ⇒ negative cycle is present</p><h3 id="2fde6df4-c014-4421-aa09-93a39cce054b" class="">Hamiltonian Cycle</h3><pre id="a165787d-352b-49d1-831d-bdbc819b9f34" class="code"><code>bool dfs(int u, int c, vector&lt;int&gt; adj[], int n, vector&lt;int&gt; vis){
+    if(c == n) return true;
+    vis[u] = 1;
+    for(auto v : adj[u]){
+        if(!vis[v] and dfs(v, c+1, adj, n, vis)) return true;
+    }
+    return false;
+}
+bool check(int N,int M,vector&lt;vector&lt;int&gt;&gt; Edges){
+    vector&lt;int&gt; adj[N+1];
+    for(auto &amp;v:Edges){
+        adj[v[0]].push_back(v[1]);
+        adj[v[1]].push_back(v[0]);
+    }
+    vector&lt;int&gt; vis(N+1,0);
+    for(int i = 1;i &lt;= N;i++){
+            if(dfs(i, 1, adj, N, vis)) return true;
+    }
+    return false;
+}</code></pre><h3 id="6d9ff3dd-bb43-4c91-9029-b2e11055a759" class="">Travelling Salesman Problem</h3><pre id="f3e33c73-a0fb-45ca-abee-5349bacfb136" class="code"><code>#include&lt;iostream&gt;
+using namespace std;
+
+#define INT_MAX 999999
+
+int n=4;
+int dist[10][10] = {
+        {0,20,42,25},
+        {20,0,30,34},
+        {42,30,0,10},
+        {25,34,10,0}
+};
+int VISITED_ALL = (1&lt;&lt;n) -1;
+
+int dp[16][4];
+
+
+int  tsp(int mask,int pos){
+	
+	if(mask==VISITED_ALL) 	return dist[pos][0];
+	if(dp[mask][pos]!=-1)   return dp[mask][pos];
+
+	//Now from current node, we will try to go to every other node and take the min ans
+		int ans = INT_MAX;
+
+	//Visit all the unvisited cities and take the best route
+	for(int city = 0; city &lt; n; city++){
+		if((mask &amp; (1&lt;&lt;city))==0){
+			int newAns = dist[pos][city] + tsp(mask | (1&lt;&lt;city), city);
+			ans = min(ans, newAns);
+		}
+	}
+	
+	return dp[mask][pos] = ans;
+} 
+
+int main(){
+    /* init the dp array */
+    for(int i=0;i&lt;(1&lt;&lt;n);i++){
+        for(int j = 0; j &lt; n; j++){
+            dp[i][j] = -1;
+        }
+    }
+	cout&lt;&lt;&quot;Travelling Saleman Distance is &quot;&lt;&lt;tsp(1,0);
+
+return 0;
+}</code></pre><h2 id="147e44fc-82ed-40f3-ac69-1bf7cd3e040a" class="">Sparse Matrix Multiplication</h2><pre id="9e8b647f-1643-4d75-8e43-a3a8be74793a" class="code"><code>vector&lt;vector&lt;int&gt;&gt; multiply(vector&lt;vector&lt;int&gt;&gt; &amp;A, vector&lt;vector&lt;int&gt;&gt; &amp;B) {
+        int ra = A.size(), ca = A[0].size(), rb = B.size(), cb = B[0].size();
+        vector&lt;vector&lt;int&gt;&gt; ans(ra, (vector&lt;int&gt;(cb, 0)));
+        map&lt;pair&lt;int, int&gt;, int&gt; mp;
+
+        for(int i = 0; i &lt; rb; i++){
+            for (int j = 0; j &lt; cb; j++){
+                if(B[i][j] != 0) mp[{i, j}] = B[i][j];
+            }
+        }
+        map&lt;pair&lt;int, int&gt; , int &gt; res;
+        for(int i = 0; i &lt; ra; i++){
+            for(int k = 0; k &lt; ca; k++){
+                if(A[i][k] != 0){
+                    for(auto p : mp){
+                        if(p.first.first == k)
+                            res[{i, p.first.second}] += A[i][k] * p.second;
+                    }
+                }
+            }
+        }
+        for (auto p : res){
+            ans[p.first.first][p.first.second] = p.second;
+        }
+        return ans;
+    }</code></pre><p id="8139e3ad-6fe9-4fd9-91cd-134e96b0aa22" class=""><code>link</code>  <a href="https://www.lintcode.com/problem/654/description">https://www.lintcode.com/problem/654/description</a></p><p id="500a881e-29c0-4143-82c8-23e8de7785ff" class="">
+</p></div></article></body></html>
